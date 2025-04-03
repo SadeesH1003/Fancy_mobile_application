@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "386387412551",
+    "project_id": "fancy-123",
+    "storage_bucket": "fancy-123.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386387412551:android:fe7b623cf77b2780545362",
+        "android_client_info": {
+          "package_name": "com.example.fancy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFbaamnpibH4sEfkJIdW0y4ppcRWOCNOc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
