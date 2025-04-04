@@ -1,8 +1,5 @@
 import 'package:fancy/data/shop.dart';
-import 'package:fancy/main.dart';
 import 'package:fancy/model/shop.dart';
-import 'package:fancy/providers/user_provider.dart';
-import 'package:fancy/services/stripe_services.dart';
 import 'package:fancy/widgets/product_details/bottom_purchase_bar.dart';
 import 'package:fancy/widgets/product_details/product_image_viewer.dart';
 import 'package:fancy/widgets/product_details/product_info.dart';
@@ -11,7 +8,6 @@ import 'package:fancy/widgets/product_details/reviews_section.dart';
 import 'package:fancy/widgets/product_details/specifications_section.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class ProductDetailsPage extends StatefulWidget {
   final String productId;
@@ -99,15 +95,17 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
     );
   }
 
-  void _buyNow() async {
-    final user = context.read<UserProvider>();
-    user.toggleLoading();
-    await StripeService.instance.makePayment(user.user!.username);
-    user.toggleLoading();
-
-    Navigator.of(context).pushAndRemoveUntil(
-      MaterialPageRoute(builder: (context) => const MyApp()),
-      (route) => false,
+  void _buyNow() {
+    // In a real app, you would navigate to checkout
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          'Proceeding to checkout...',
+          style: GoogleFonts.marcellus(),
+        ),
+        backgroundColor: const Color.fromARGB(255, 165, 81, 139),
+        duration: const Duration(seconds: 2),
+      ),
     );
   }
 

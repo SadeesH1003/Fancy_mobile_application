@@ -1,7 +1,5 @@
 import 'package:fancy/main.dart';
 import 'package:fancy/providers/user_provider.dart';
-import 'package:fancy/screens/admin/adm_base.dart';
-import 'package:fancy/screens/admin/adm_home.dart';
 import 'package:fancy/screens/auth/sign_up.dart';
 import 'package:fancy/screens/home/home.dart';
 import 'package:flutter/material.dart';
@@ -28,15 +26,6 @@ class _SignInState extends State<SignIn> {
   void _handleLogin() async {
     if (_formKey.currentState!.validate()) {
       try {
-        if (_emailController.text == 'admin@gmail.com' &&
-            _passwordController.text == 'admin123') {
-          Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context) => const AdminBase()),
-            (route) => false,
-          );
-          return;
-        }
-
         final userProvider = context.read<UserProvider>();
         await userProvider.loginUser(
           _emailController.text.trim(),
