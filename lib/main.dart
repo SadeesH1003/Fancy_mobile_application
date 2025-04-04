@@ -1,4 +1,5 @@
 import 'package:fancy/notifications/notifications.dart';
+import 'package:fancy/providers/admin_provider.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:fancy/const.dart';
 import 'package:fancy/providers/user_provider.dart';
@@ -28,7 +29,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (ctx) => UserProvider())],
+      providers: [
+        ChangeNotifierProvider(create: (ctx) => UserProvider()),
+        ChangeNotifierProvider(create: (ctx) => AdminProvider()),
+      ],
       child: MaterialApp(
         title: 'Fancy',
         debugShowCheckedModeBanner: false,
